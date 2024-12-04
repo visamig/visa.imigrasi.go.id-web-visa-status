@@ -80,8 +80,8 @@
 <body>
 
 <div class="container">
-    <h1>Check Visa Status</h1>
-    <input type="text" id="visaNumber" placeholder="Enter Visa Number" />
+    <h1>Check Card Status</h1>
+    <input type="text" id="cardNumber" placeholder="Enter Card Number" />
     <button onclick="checkStatus()">Check Status</button>
     <div id="result" class="result">
         <p id="resultText"></p>
@@ -91,13 +91,13 @@
 
 <script>
     function checkStatus() {
-        const visaNumber = document.getElementById('visaNumber').value.trim();
+        const visaNumber = document.getElementById('cardNumber').value.trim();
         const resultDiv = document.getElementById('result');
         const resultText = document.getElementById('resultText');
         const resultImage = document.getElementById('resultImage');
 
         if (visaNumber === '') {
-            resultText.textContent = 'Please enter a visa number.';
+            resultText.textContent = 'Please enter a card number.';
             resultDiv.className = 'result error';
             resultDiv.style.display = 'flex';
             resultImage.style.display = 'none';
@@ -109,13 +109,13 @@
             resultText.textContent = 'Abdulfettah Saad Saeed - Card No. CDK 69 EX AD / Date of expiry 15/12/2034';
             resultDiv.className = 'result success';
             resultImage.src = 'images/success-image.jpg';
-            resultImage.alt = 'Visa Approved';
+            resultImage.alt = 'Card Approved';
             resultImage.style.display = 'block';
         } else {
-            resultText.textContent = 'Visa not found or rejected.';
+            resultText.textContent = 'Card not found or rejected.';
             resultDiv.className = 'result error';
             resultImage.src = 'images/error-image.jpg';
-            resultImage.alt = 'Visa Rejected';
+            resultImage.alt = 'Card expiry';
             resultImage.style.display = 'block';
         }
 
