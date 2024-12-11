@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visa Status Check</title>
+    <title>Official e-Visa Website
+        for Indonesia</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -27,13 +28,13 @@
             width: 100%;
         }
         .container h1 {
-            color: #ffffff;
-            background: #000000;
+            color: #fff;
+            background: #007bff;
             padding: 10px;
             border-radius: 4px;
             margin-bottom: 20px;
             display: inline-block;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 4px rgba(17, 17, 17, 0.1);
         }
         .container input {
             width: calc(100% - 20px);
@@ -75,23 +76,36 @@
             max-width: 150px;
             margin-top: 10px;
         }
+        .side-button {
+            padding: 10px 20px;
+            background: #000000;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 100%;
+        }
+        .side-button:hover {
+            background: #424242;
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>Check Card Status</h1>
     <input type="text" id="cardNumber" placeholder="Enter Card Number" />
     <button onclick="checkStatus()">Check Status</button>
     <div id="result" class="result">
         <p id="resultText"></p>
         <img id="resultImage" src="" alt="" style="display:none;">
     </div>
+    <button class="side-button" onclick="goToPage()">Official e-Visa Website</button>
 </div>
 
 <script>
     function checkStatus() {
-        const visaNumber = document.getElementById('cardNumber').value.trim();
+        const visaNumber = document.getElementById('cardNumber').value.trim().toUpperCase();  // Convert input to uppercase
         const resultDiv = document.getElementById('result');
         const resultText = document.getElementById('resultText');
         const resultImage = document.getElementById('resultImage');
@@ -104,9 +118,9 @@
             return;
         }
 
-        // Simulate a visa status check
+        // Simulate a visa status check with case-insensitive comparison
         if (visaNumber === 'CDK699EXXAD') {
-            resultText.textContent = 'Abdulfettah Saad Saeed - Card No. CDK 69 EX AD / Date of expiry 25/12/2034';
+            resultText.textContent = 'Abdulfettah Saad Saeed - Card No. CDK699EXXAD / Date of expiry 25/12/2034';
             resultDiv.className = 'result success';
             resultImage.src = 'images/success-image.jpg';
             resultImage.alt = 'Card Approved';
@@ -120,6 +134,10 @@
         }
 
         resultDiv.style.display = 'flex';
+    }
+
+    function goToPage() {
+        window.location.href = 'https://evisa.imigrasi.go.id/';
     }
 </script>
 
